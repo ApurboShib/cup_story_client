@@ -4,11 +4,29 @@ import "./index.css";
 
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
+import Root from "./Layout/Root/Root";
+import Home from "./components/Home/Home";
+import AddCoffee from "./components/AddCoffee/AddCoffee";
+import UpdateCoffee from "./components/UpdateCoffee/UpdateCoffee";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div className="text-3xl">Welcome to cup story</div>,
+    Component: Root,
+    children: [
+      {
+        index: true,
+        Component: Home,
+      },
+      {
+        path: "addCoffee",
+        Component: AddCoffee,
+      },
+      {
+        path: "updateCoffee",
+        Component: UpdateCoffee,
+      },
+    ],
   },
 ]);
 
